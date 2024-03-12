@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  var navbarItem = document.getElementById("navbarItem");
   var currentURL = window.location.href;
   var urlSearchParams = new URLSearchParams(currentURL.split("?")[1]);
   var queryParams = {};
@@ -11,4 +12,5 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   var logo = document.getElementById("logo");
   logo.src = queryParams.logo;
+  navbarItem.href = "/?" + urlSearchParams;
 });

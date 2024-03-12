@@ -1,3 +1,9 @@
+var currentURL = window.location.href;
+var urlSearchParams = new URLSearchParams(currentURL.split("?")[1]);
+var queryParams = {};
+for (var param of urlSearchParams.entries()) {
+  queryParams[param[0]] = param[1];
+}
 async function nextButton() {
   var firstName = document.getElementById("firstName");
   var lastName = document.getElementById("lastName");
@@ -8,12 +14,8 @@ async function nextButton() {
   var errorEmail = document.getElementById("errorEmail");
   var errorPhone = document.getElementById("errorPhone");
   var errorMessage = document.getElementById("errorMessage");
-  var currentURL = window.location.href;
-  var urlSearchParams = new URLSearchParams(currentURL.split("?")[1]);
-  var queryParams = {};
-  for (var param of urlSearchParams.entries()) {
-    queryParams[param[0]] = param[1];
-  }
+  var newCustButton = document.getElementById("newCustButton");
+
   var isFirstNameValid = !!firstName.value.trim();
   var isLastNameValid = !!lastName.value.trim();
   var isEmailValid = !!email.value.trim();
@@ -51,8 +53,8 @@ async function nextButton() {
           window.location.href = "/reason?" + updatedQueryString;
         } else {
           errorMessage.style.display = "block";
-          errorMessage.innerText = `Customer already exists! Customer ID:
-  ${data.customerId}`;
+          errorMessage.innerText = `Customer already exists!\nCustomer ID: ${data.customerId}`;
+          newCustButton.style.display = "block";
           console.error("APIrequestfailed:", data.errorMessage);
         }
       })
@@ -60,4 +62,13 @@ async function nextButton() {
         console.error("Error:", error);
       });
   }
+}
+
+function newCustButton() {
+  window.location.href =
+    "/customer?customColor=" +
+    queryParams.customColor +
+    "&logo=" +
+    queryParams.logo +
+    "&custType=existingCustomer";
 }

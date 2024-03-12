@@ -15,7 +15,13 @@
   </div>
   <div class="button-container">
     <button
-      class="button is-rounded is-one-fifth custom-red"
+      class="button is-rounded is-one-quarter"
+      id="newCustButton"
+      onclick="newCustButton()"
+      style="display:none;"
+    >Create a new customer</button>
+    <button
+      class="button is-rounded is-one-fifth custom-red next-button"
       id="nextButton"
       onclick="nextButton()"
     >Next</button>
@@ -29,9 +35,10 @@
 <style>
   .label-container { display: flex; justify-content: space-around;
   padding-right: 10%; padding-left: 10%; } .label { padding-bottom: 2%; }
-  .button-container { display: flex; justify-content: space-around; padding: 2%;
-  } .button { width: 15%; } .error-message { color: red; display: none;
+  .button-container { display: flex; justify-content: center; align-items:
+  center; padding: 2%; flex-direction: column;} .button{margin-bottom: 1%;}
+  .next-button { width: 15%; }.error-message { color: red; display: none;
   font-size: 12px; } .success-message { color: green; display: none; font-size:
-  12px; } @media (max-width: 768px) { h4 { font-size: 18px !important; } .button
-  { width: 70%; } }
+  12px; } @media (max-width: 768px) { h4 { font-size: 18px !important; }
+  .next-button { width: 70%; } .button{margin-bottom:5%;} }
 </style>
