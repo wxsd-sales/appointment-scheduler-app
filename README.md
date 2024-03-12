@@ -8,7 +8,12 @@ For existing customers it promts for thier customer ID and validates it. For new
 
 The app manages customer interactions by validating existing customer IDs and creating new ones. It also integrates appointment scheduling, allowing customers to select their visit reason and preferred date/time, providing a convenient confirmation ID for future reference. Once the appointmnet is scheduled, it creates a JDS event allowing the agents to track customer events from start. This app can be used standalone or be embedded in your application using an iframe.
 
-### Flow Diagram
+## Flow Diagram
+
+<img width="771" alt="image" src="https://github.com/wxsd-sales/appointment-scheduler-app/assets/85897512/bdee0d95-ec0b-498b-a0f3-10342922ace9">
+
+
+
 
 ## Setup
 
