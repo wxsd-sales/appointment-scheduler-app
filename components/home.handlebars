@@ -1,0 +1,25 @@
+<script src="./js/home.js"></script>
+<div class="button-container">
+  <button class="button" id="exisCutomer" onclick="exisCutomer()">
+    <i class="fa-solid fa-lock fa-xl"></i>
+    <div>Existing Customer</div></button>
+  <button class="button" id="guest" onclick="guest()"><i
+      class="fa-regular fa-handshake fa-xl"
+    ></i><div>Continue as Guest</div></button>
+</div>
+
+
+</script>
+
+<style>
+
+  .button-container{ display: flex; justify-content: center; margin-top: 5%;}
+  .button{ height: 200px; background-color: darkgray; display: flex; gap:30px;
+  align-items: center; justify-content: center; flex-direction: column;padding:
+  20px; width: 30%; border-radius: 20px; margin-right: 2%; } @media (max-width:
+  768px) { .button-container{ display: flex; justify-content: center;
+  margin-top: 5%;flex-direction: column; align-items: center;} .button{ height:
+  100px; background-color: darkgray; display: flex; gap:20px; align-items:
+  center; justify-content: center; flex-direction: column;padding: 20px; width:
+  70%; border-radius: 20px; margin-bottom: 8%; margin-top: 2%;} }
+</style>

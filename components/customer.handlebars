@@ -1,0 +1,37 @@
+<script src="./js/customer.js"></script>
+<div class="hero label-container">
+  <div class="field">
+    <h4 class="subtitle is-4">Enter your customer ID</h4>
+    <div class="control">
+      <input
+        class="input"
+        type="text"
+        id="customerId"
+        placeholder="e.g 1155"
+        required
+      />
+    </div>
+    <p class="error-message" id="errorMessage">Please enter a valid customer ID</p>
+  </div>
+  <div class="button-container">
+    <button
+      class="button is-rounded is-one-fifth custom-red"
+      id="nextButton"
+      onclick="nextButton()"
+    >Next</button>
+  </div>
+</div>
+
+<script>
+  const accessToken="{{accessToken}}"; const soapBoxURL="{{soapBoxURL}}";
+</script>
+
+<style>
+  .label-container { display: flex; justify-content: space-around;
+  padding-right: 10%; padding-left: 10%; } .label { padding-bottom: 2%; }
+  .button-container { display: flex; justify-content: space-around; padding: 2%;
+  } .button { width: 15%; } .error-message { color: red; display: none;
+  font-size: 12px; } .success-message { color: green; display: none; font-size:
+  12px; } @media (max-width: 768px) { h4 { font-size: 18px !important; } .button
+  { width: 70%; } }
+</style>

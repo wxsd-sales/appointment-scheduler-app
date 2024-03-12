@@ -1,0 +1,45 @@
+<script src="./js/dateTime.js"></script>
+<div class="hero label-container">
+  <div class="control">
+    <h4 class="subtitle is-4">Choose a day and time</h4>
+    <input
+      name="date"
+      type="date"
+      id="datetime"
+      placeholder="Select date"
+      class="input custom-border is-fullwidth"
+    />
+    <p class="error-message" id="errorMessage">Please select a date and time</p>
+  </div>
+  <div class="button-container">
+    <button
+      class="button is-rounded is-one-fifth"
+      id="prevLink"
+      onclick="handlePrevious()"
+    >Previous</button>
+    <button
+      class="button is-rounded is-one-fifth custom-red"
+      id="submitButton"
+      onclick="handleSubmit()"
+    >Submit</button>
+  </div>
+  <script>
+    const accessToken ="{{accessToken}}"; const soapBoxURL ="{{soapBoxURL}}"
+  </script>
+
+</div>
+<script>
+const accessToken="{{accessToken}}"; const soapBoxURL="{{soapBoxURL}}";
+</script >
+
+<style>
+
+  .label-container { display: flex; justify-content: space-around;
+  padding-right: 10%; padding-left: 10%; } .label { padding-bottom: 2%; }
+  .button-container { display: flex; align-items: center; justify-content:
+  center; padding: 5%; flex-direction: column; } .error-message { color: red;
+  display: none; font-size: 12px; } .radio { padding: 1%; } .button { width:
+  15%; margin-bottom: 1%; } @media (max-width: 768px) { h4 { font-size: 18px
+  !important; } .button { width: 70%; margin-bottom: 5%; } .button-container {
+  padding: 10%; } }
+</style>

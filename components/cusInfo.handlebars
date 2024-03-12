@@ -1,0 +1,75 @@
+<script src="./js/cusInfo.js"></script >
+<div class="hero label-container">
+  <div class="field">
+    <h4 class="subtitle is-4">Enter your contact information</h4>
+    <div class="control">
+      <input
+        class="input"
+        type="text"
+        id="firstName"
+        placeholder="First Name"
+        required
+      />
+      <p class="error-first-name" id="errorFirstName">Please enter a valid first
+        name</p>
+    </div>
+    <div class="control">
+      <input
+        class="input"
+        type="text"
+        id="lastName"
+        placeholder="Last Name"
+        required
+      />
+      <p class="error-last-name" id="errorLastName">Please enter a valid last
+        name</p>
+    </div>
+    <div class="control">
+      <input
+        class="input"
+        type="text"
+        id="email"
+        placeholder="Email Address"
+        required
+      />
+      <p class="error-email" id="errorEmail">Please enter a valid email address</p>
+    </div>
+    <div class="control">
+      <input
+        class="input"
+        type="text"
+        id="phone"
+        placeholder="Phone Number"
+        required
+      />
+      <p class="error-phone" id="errorPhone">Please enter a valid phone number</p>
+    </div>
+    <p class="error-message" id="errorMessage">Customer already exists</p>
+  </div>
+  <div class="button-container">
+    <button
+      class="button is-rounded is-one-fifth custom-red"
+      id="nextButton"
+      onclick="nextButton()"
+    >Next</button>
+  </div>
+</div>
+
+<script>
+const accessToken="{{accessToken}}"; const soapBoxURL="{{soapBoxURL}}";
+</script >
+
+<style>
+
+  .label-container{ display: flex; justify-content: space-around; padding-right:
+  10%; padding-left: 10%; } .label{ padding-bottom:2%; } .button-container{
+  display: flex; justify-content: space-around; padding:2%; }
+  .button{width:15%;} .control{ padding: 1% 0;justify-content: space-between; }
+  .error-first-name { color: red; display: none; font-size: 12px; }
+  .error-last-name { color: red; display: none; font-size: 12px; } .error-email
+  { color: red; display: none; font-size: 12px; } .error-phone { color: red;
+  display: none; font-size: 12px; } .error-message { color: red; display: none;
+  font-size: 12px; } .success-message { color: green; display: none; font-size:
+  12px; } @media (max-width: 768px) { h4 { font-size: 18px !important;
+  }.button{width:70%;margin-bottom: 5%;}.control{ padding: 5% 0; } }
+</style>

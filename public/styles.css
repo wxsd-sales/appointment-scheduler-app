@@ -1,0 +1,50 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+}
+
+#app {
+  flex-grow: 1; /* Allow the content to grow and fill the available space */
+  padding: 20px;
+}
+
+h2 {
+  padding-top: 5%;
+  padding-left: 5%;
+  padding-bottom: 2%;
+  text-transform: lowercase;
+  display: flex;
+  /* font-size: 30px;
+  font-weight: 600; */
+  text-transform: none;
+}
+
+/* Add styles to make the header and footer sticky */
+.custom-red {
+  background-color: #d71d28;
+  color: white;
+}
+.logo {
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 20%;
+}
+.navbar-burger {
+  padding-top: 1%;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    padding-top: 20%;
+    padding-bottom: 2%;
+    text-transform: lowercase;
+    display: flex;
+    font-size: 30px !important;
+    text-transform: none;
+  }
+}
