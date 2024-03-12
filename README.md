@@ -10,7 +10,9 @@ The app manages customer interactions by validating existing customer IDs and cr
 
 ## Flow Diagram
 
-<img width="770" alt="image" src="https://github.com/wxsd-sales/appointment-scheduler-app/assets/85897512/17213cff-0e9c-4674-869c-5005742853cd">
+<img width="771" alt="image" src="https://github.com/wxsd-sales/appointment-scheduler-app/assets/85897512/bdee0d95-ec0b-498b-a0f3-10342922ace9">
+
+
 
 
 ## Setup
