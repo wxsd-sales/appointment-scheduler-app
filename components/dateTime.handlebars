@@ -1,45 +1,64 @@
 <script src="./js/dateTime.js"></script>
-<div class="hero label-container">
-  <div class="control">
-    <h4 class="subtitle is-4">Choose a day and time</h4>
-    <input
-      name="date"
-      type="date"
-      id="datetime"
-      placeholder="Select date"
-      class="input custom-border is-fullwidth"
-    />
-    <p class="error-message" id="errorMessage">Please select a date and time</p>
-  </div>
-  <div class="button-container">
-    <button
-      class="button is-rounded is-one-fifth"
-      id="prevLink"
-      onclick="handlePrevious()"
-    >Previous</button>
-    <button
-      class="button is-rounded is-one-fifth custom-red"
-      id="submitButton"
-      onclick="handleSubmit()"
-    >Submit</button>
-  </div>
-  <script>
-    const accessToken ="{{accessToken}}"; const soapBoxURL ="{{soapBoxURL}}"
-  </script>
 
-</div>
+<form class="container px-4 mb-6" onsubmit="handleSubmit()" id="dateTimeForm">
+  <div class="columns is-multiline">
+    <div class="column is-full">
+      <h2 class="title is-2">Make an appointment</h2>
+    </div>
+    <div class="column is-full">
+      <h4 class="subtitle is-4">Choose a date and time</h4>
+    </div>
+    <div class="column is-full">
+      <label class="label" for="firstName">Date and Time<sup
+          class="has-text-danger"
+          title="required"
+        >*</sup></label>
+      <div class="control has-icons-left">
+        <input
+          name="date"
+          type="date"
+          id="datetime"
+          placeholder="Select date"
+          class="input custom-border date-input"
+          required
+        />
+        <span class="icon is-left"><i class="fa-regular fa-calendar-days"></i></span>
+      </div>
+      <p class="help">Select date and time for your appointment</p>
+      <p class="help is-danger" id="errorMessage" style="display:none;">Please select a date and time</p>
+    </div>
+  </div>
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <div class="buttons is-centered">
+        <button
+          class="button is-rounded is-one-fifth is-medium"
+          id="prevLink"
+          onclick="handlePrevious()"
+        >
+          <span class="icon">
+            <i class="fa-solid fa-backward"></i>
+          </span>
+          <span>Previous</span>
+        </button>
+        <button
+          class="button is-rounded is-one-fifth custom-red is-medium"
+          id="submitButton"
+          type="submit"
+        >
+          <span>Submit</span>
+          <span class="icon">
+            <i class="fa-solid fa-forward"></i>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
 <script>
 const accessToken="{{accessToken}}"; const soapBoxURL="{{soapBoxURL}}";
 </script >
 
 <style>
-
-  .label-container { display: flex; justify-content: space-around;
-  padding-right: 10%; padding-left: 10%; } .label { padding-bottom: 2%; }
-  .button-container { display: flex; align-items: center; justify-content:
-  center; padding: 5%; flex-direction: column; } .error-message { color: red;
-  display: none; font-size: 12px; } .radio { padding: 1%; } .button { width:
-  15%; margin-bottom: 1%; } @media (max-width: 768px) { h4 { font-size: 18px
-  !important; } .button { width: 70%; margin-bottom: 5%; } .button-container {
-  padding: 10%; } }
+    @media (max-width: 1600px) and (min-width :768px) {.date-input{width:40%;}}
 </style>

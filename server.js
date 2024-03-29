@@ -18,6 +18,9 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/", (req, res) => {
   res.render("home", { title: "Home page" });
 });
+app.get("/test", (req, res) => {
+  res.render("test", { title: "Home page" });
+});
 
 app.get("/customer", (req, res) => {
   res.render("customer", { title: "Home page", accessToken, soapBoxURL });

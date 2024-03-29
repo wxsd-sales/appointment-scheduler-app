@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     coloredElements[i].style.backgroundColor = "#" + queryParams.customColor;
   }
   var logo = document.getElementById("logo");
-  logo.src = queryParams.logo;
+  if (queryParams.logo) {
+    logo.src = queryParams.logo;
+  }
   navbarItem.href = "/?" + urlSearchParams;
 });

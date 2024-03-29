@@ -1,12 +1,29 @@
 <script src="./js/success.js"></script>
-<div class="hero label-container">
-  <h4 class="subtitle is-4">Your appointment is successfully scheduled</h4>
-  <h4 class="subtitle is-4" id="confId">Confirmation ID: </h4>
-  <p>Click <a id="backLink" href="#">here</a> to go back to home page</p>
-</div>
-<style>
 
-  .label-container { display: flex; justify-content: space-around;
-  padding-right: 10%; padding-left: 10%; } @media (max-width: 768px) { h4 {
-  font-size: 18px !important; } }
-</style>
+<div class="container px-4 mb-6">
+  <div class="columns is-multiline is-centered">
+    <div class="column is-full appointment-title">
+      <h2 class="title is-2 ">Appointment successfully scheduled</h2>
+    </div>
+    <div class="column is-full">
+      <div class="card">
+        <div class="card-content">
+          <div class="content has-text-centered">
+            <h4 class="subtitle is-4 mt-4">Thank you for scheduling the
+              appointment!
+            </h4>
+            <h5 class="subtitle is-5 has-text-weight-normal is-size-6-mobile" id="custId">Customer ID: </h4>
+            <h5 class="subtitle is-5 has-text-weight-normal is-size-6-mobile" id="confId">Confirmation ID: </h4>
+          </div>
+        </div>
+        <footer class="card-footer px-4">
+          <a
+            id="backLink"
+            href="#"
+            class="card-footer-item button is-outlined is-rounded mt-3 mb-3"
+          >Schedule another appointment</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+</div>

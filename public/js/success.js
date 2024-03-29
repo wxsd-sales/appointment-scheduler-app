@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById(
     "confId"
   ).innerHTML = `Confirmation ID: ${queryParams.confirmationId}`;
+  document.getElementById(
+    "custId"
+  ).innerHTML = `Customer ID: ${queryParams.customerId}`;
   backLink.href =
     "/?customColor=" + queryParams.customColor + "&logo=" + queryParams.logo;
 });

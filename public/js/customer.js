@@ -4,10 +4,17 @@ var queryParams = {};
 for (var param of urlSearchParams.entries()) {
   queryParams[param[0]] = param[1];
 }
+document.addEventListener("DOMContentLoaded", function () {
+  var firstForm = document.getElementById("firstForm");
+  firstForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    nextButton();
+  });
+});
 async function nextButton() {
   var customerId = document.getElementById("customerId");
   var errorMessage = document.getElementById("errorMessage");
-  var newCustButton = document.getElementById("newCustButton");
 
   if (customerId.validity.valueMissing || isNaN(customerId.value)) {
     errorMessage.style.display = "block";
@@ -28,7 +35,6 @@ async function nextButton() {
         window.location.href = "/reason?" + updatedQueryString;
       } else {
         errorMessage.style.display = "block";
-        newCustButton.style.display = "block";
         console.error("APIrequestfailed:", data.errorMessage);
       }
     } catch (error) {
@@ -36,11 +42,6 @@ async function nextButton() {
     }
   }
 }
-function newCustButton() {
-  window.location.href =
-    "/cusInfo?customColor=" +
-    queryParams.customColor +
-    "&logo=" +
-    queryParams.logo +
-    "&custType=guest";
+function handlePrevious() {
+  window.location.href = "/?" + urlSearchParams;
 }

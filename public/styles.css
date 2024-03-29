@@ -2,28 +2,14 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  padding-top: 4.25rem;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+  min-height: 100vh;
 }
-
 #app {
-  flex-grow: 1; /* Allow the content to grow and fill the available space */
-  padding: 20px;
+  min-height: 100vh;
 }
-
-h2 {
-  padding-top: 5%;
-  padding-left: 5%;
-  padding-bottom: 2%;
-  text-transform: lowercase;
-  display: flex;
-  /* font-size: 30px;
-  font-weight: 600; */
-  text-transform: none;
-}
-
-/* Add styles to make the header and footer sticky */
 .custom-red {
   background-color: #d71d28;
   color: white;
@@ -37,14 +23,33 @@ h2 {
   padding-top: 1%;
   color: white;
 }
+.button {
+  width: 10rem;
+}
+.date-input {
+  width: 20%;
+}
 
 @media (max-width: 768px) {
-  h2 {
-    padding-top: 20%;
-    padding-bottom: 2%;
-    text-transform: lowercase;
-    display: flex;
-    font-size: 30px !important;
-    text-transform: none;
+  body {
+    padding-top: 2.25rem;
+  }
+  .title {
+    font-size: 25px !important;
+  }
+  .appointment-title {
+    text-align: center;
+  }
+  h4 {
+    font-size: 18px !important;
+  }
+  .button {
+    width: 70%;
+  }
+  .date-input {
+    width: 100%;
+  }
+  .radio {
+    padding: 5%;
   }
 }

@@ -1,14 +1,25 @@
 var currentURL = window.location.href;
 var urlSearchParams = new URLSearchParams(currentURL.split("?")[1]);
 document.addEventListener("DOMContentLoaded", function () {
+  var dateTimeForm = document.getElementById("dateTimeForm");
   const currentDate = new Date();
+  const year = currentDate.getFullYear();
+  const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+  const day = String(currentDate.getDate()).padStart(2, "0");
+
+  const formattedDate = `${year}-${month}-${day}`;
+
+  console.log(formattedDate);
   flatpickr("#datetime", {
     enableTime: true,
     dateFormat: "Y-m-d H:i",
     theme: "dark",
-    minDate: currentDate,
-    minTime: "09:00",
-    maxTime: "16:00",
+    minDate: formattedDate,
+  });
+  dateTimeForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    handleSubmit();
   });
 });
 function handleSubmit() {
@@ -54,8 +65,12 @@ function handleSubmit() {
             "&logo=" +
             queryParams.logo +
             "&confirmationId=" +
-            data.confirmationId;
+            data.confirmationId +
+            "&customerId=" +
+            queryParams.customerId;
         } else {
+          errorMessage.style.display = "block";
+          errorMessage.innerText = data.msg;
           console.error("APIrequestfailed:", data.msg);
         }
       })
@@ -67,12 +82,3 @@ function handleSubmit() {
 function handlePrevious() {
   window.location.href = "/reason?" + urlSearchParams;
 }
-var myModal = new bootstrap.Modal(document.getElementById("exampleModal"));
-myModal._element.addEventListener("hidden.bs.modal", function () {
-  var queryParams = {};
-  for (var param of urlSearchParams.entries()) {
-    queryParams[param[0]] = param[1];
-  }
-  window.location.href =
-    "/?customColor=" + queryParams.customColor + "&logo=" + queryParams.logo;
-});

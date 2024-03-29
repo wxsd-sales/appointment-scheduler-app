@@ -4,15 +4,23 @@ var queryParams = {};
 for (var param of urlSearchParams.entries()) {
   queryParams[param[0]] = param[1];
 }
+document.addEventListener("DOMContentLoaded", function () {
+  var cusInfoForm = document.getElementById("cusInfoForm");
+  cusInfoForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    nextButton();
+  });
+});
 async function nextButton() {
   var firstName = document.getElementById("firstName");
   var lastName = document.getElementById("lastName");
   var email = document.getElementById("email");
   var phone = document.getElementById("phone");
-  var errorFirstName = document.getElementById("errorFirstName");
-  var errorLastName = document.getElementById("errorLastName");
-  var errorEmail = document.getElementById("errorEmail");
-  var errorPhone = document.getElementById("errorPhone");
+  // var errorFirstName = document.getElementById("errorFirstName");
+  // var errorLastName = document.getElementById("errorLastName");
+  // var errorEmail = document.getElementById("errorEmail");
+  // var errorPhone = document.getElementById("errorPhone");
   var errorMessage = document.getElementById("errorMessage");
   var newCustButton = document.getElementById("newCustButton");
 
@@ -20,10 +28,10 @@ async function nextButton() {
   var isLastNameValid = !!lastName.value.trim();
   var isEmailValid = !!email.value.trim();
   var isPhoneValid = !!phone.value.trim();
-  errorFirstName.style.display = isFirstNameValid ? "none" : "block";
-  errorLastName.style.display = isLastNameValid ? "none" : "block";
-  errorEmail.style.display = isEmailValid ? "none" : "block";
-  errorPhone.style.display = isPhoneValid ? "none" : "block";
+  // errorFirstName.style.display = isFirstNameValid ? "none" : "block";
+  // errorLastName.style.display = isLastNameValid ? "none" : "block";
+  // errorEmail.style.display = isEmailValid ? "none" : "block";
+  // errorPhone.style.display = isPhoneValid ? "none" : "block";
   var isFormValid =
     isFirstNameValid && isLastNameValid && isEmailValid && isPhoneValid;
   if (isFormValid) {
@@ -53,9 +61,8 @@ async function nextButton() {
           window.location.href = "/reason?" + updatedQueryString;
         } else {
           errorMessage.style.display = "block";
-          errorMessage.innerText = `Customer already exists!\nCustomer ID: ${data.customerId}`;
-          newCustButton.style.display = "block";
-          console.error("APIrequestfailed:", data.errorMessage);
+          errorMessage.innerText = `${data.msg}\nCustomer ID: ${data.customerId}`;
+          console.error("APIrequestfailed");
         }
       })
       .catch((error) => {
@@ -63,12 +70,6 @@ async function nextButton() {
       });
   }
 }
-
-function newCustButton() {
-  window.location.href =
-    "/customer?customColor=" +
-    queryParams.customColor +
-    "&logo=" +
-    queryParams.logo +
-    "&custType=existingCustomer";
+function handlePrevious() {
+  window.location.href = "/?" + urlSearchParams;
 }

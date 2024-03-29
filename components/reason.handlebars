@@ -1,100 +1,46 @@
 <script src="./js/reason.js"></script>
-<div class="hero label-container">
-  <div class="control">
-    <h4 class="subtitle is-4">Reason for your visit</h4>
-    <label class="radio">
-      <input
-        type="radio"
-        name="reason"
-        id="newAccount"
-        value="Open a new account"
-      />
-      Open a new account
-    </label>
-    <br />
-    <label class="radio">
-      <input
-        type="radio"
-        name="reason"
-        id="creditCard"
-        value="Apply for a credit card"
-      />
-      Apply for a credit card
-    </label>
-    <br />
-    <label class="radio">
-      <input
-        type="radio"
-        name="reason"
-        id="manageSpending"
-        value="Manage spending and saving"
-      />
-      Manage spending and saving
-    </label>
-    <br />
-    <label class="radio">
-      <input
-        type="radio"
-        name="reason"
-        id="buildCredit"
-        value="Build credit and reduce debt"
-      />
-      Build credit and reduce debt
-    </label>
-    <br />
-    <label class="radio">
-      <input
-        type="radio"
-        name="reason"
-        id="death"
-        value="Death of a loved one"
-      />
-      Death of a loved one
-    </label>
-    <br />
-    <label class="radio">
-      <input
-        type="radio"
-        name="reason"
-        id="assitance"
-        value="Questions or assistance with products and services"
-      />
-      Questions or assistance with products and services
-    </label>
-    <br />
-    <label class="radio">
-      <input
-        type="radio"
-        name="reason"
-        id="retirement"
-        value="Save for retirement"
-      />
-      Save for retirement
-    </label>
-    <p class="error-message" id="errorMessage">Please select atleast one option</p>
+
+<div class="container px-4 mb-6">
+  <div class="columns is-multiline">
+    <div class="column is-full">
+      <h2 class="title is-2">Make an appointment</h2>
+    </div>
+    <div class="column is-full">
+      <h4 class="subtitle is-4">Reason for your visit</h4>
+    </div>
+    <div class="column is-full">
+      <label class="label" for="firstName">Reason<sup
+          class="has-text-danger"
+          title="required"
+        >*</sup></label>
+      <div class="control">
+        <div class="field" id="reasonsContainer">
+        </div>
+      </div>
+      <p class="help is-danger" id="errorMessage" style="display:none;">Please
+        select atleast one reason</p>
+    </div>
   </div>
-  <div class="button-container">
-    <button
-      class="button is-rounded is-one-fifth"
-      id="prevButton"
-      onclick="prevButton()"
-    >Previous</button>
-    <button
-      class="button is-rounded is-one-fifth custom-red"
-      id="nextButton"
-      onclick="nextButton()"
-    >Next</button>
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <div class="buttons is-centered">
+        <button
+          class="button is-rounded is-one-fifth is-medium"
+          id="prevButton"
+          onclick="prevButton()"
+        ><span class="icon">
+            <i class="fa-solid fa-backward"></i>
+          </span>
+          <span>Previous</span></button>
+        <button
+          class="button is-rounded is-one-fifth custom-red is-medium"
+          id="nextButton"
+          onclick="nextButton()"
+        ><span>Next</span>
+          <span class="icon">
+            <i class="fa-solid fa-forward"></i>
+          </span></button>
+      </div>
+    </div>
   </div>
 </div>
-
-<style>
-
-  .label-container{ display: flex; justify-content: space-around; padding-right:
-  10%; padding-left: 10%; } .label{ padding-bottom:2%; } .button-container{
-  display: flex; align-items: center; justify-content: center;
-  padding:5%;flex-direction: column; } .radio{ padding:1%; }
-  .button{width:15%;margin-bottom: 1%;} .error-message { color: red; display:
-  none; font-size: 12px; } @media (max-width: 768px) { h4 { font-size: 18px
-  !important; }.button{width:70%;margin-bottom: 5%;}.label{ padding-bottom:10%;
-  } .radio{ padding:5%; } }
-</style>
