@@ -26,9 +26,6 @@ body {
 .button {
   width: 10rem;
 }
-.date-input {
-  width: 20%;
-}
 
 @media (max-width: 768px) {
   body {
@@ -45,9 +42,6 @@ body {
   }
   .button {
     width: 70%;
-  }
-  .date-input {
-    width: 100%;
   }
   .radio {
     padding: 5%;

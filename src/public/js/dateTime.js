@@ -21,6 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     handleSubmit();
   });
+  document.getElementsByClassName("numInput")[0].readOnly = true;
+  document.getElementsByClassName("numInput")[1].readOnly = true;
+  document.getElementsByClassName("numInput")[2].readOnly = true;
 });
 function handleSubmit() {
   var valueInput = document.getElementById("datetime");

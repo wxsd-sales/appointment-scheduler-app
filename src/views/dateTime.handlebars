@@ -8,7 +8,7 @@
     <div class="column is-full">
       <h4 class="subtitle is-4">Choose a date and time</h4>
     </div>
-    <div class="column is-full">
+    <div class="column is-one-third">
       <label class="label" for="firstName">Date and Time<sup
           class="has-text-danger"
           title="required"
@@ -19,7 +19,7 @@
           type="date"
           id="datetime"
           placeholder="Select date"
-          class="input custom-border date-input"
+          class="input custom-border"
           required
         />
         <span class="icon is-left"><i class="fa-regular fa-calendar-days"></i></span>
@@ -58,7 +58,3 @@
 <script>
 const accessToken="{{accessToken}}"; const soapBoxURL="{{soapBoxURL}}";
 </script >
-
-<style>
-    @media (max-width: 1600px) and (min-width :768px) {.date-input{width:40%;}}
-</style>
