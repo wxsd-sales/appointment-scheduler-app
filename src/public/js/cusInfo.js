@@ -1,39 +1,22 @@
-var currentURL = window.location.href;
-var urlSearchParams = new URLSearchParams(currentURL.split("?")[1]);
-var queryParams = {};
-for (var param of urlSearchParams.entries()) {
-  queryParams[param[0]] = param[1];
-}
-document.addEventListener("DOMContentLoaded", function () {
-  var cusInfoForm = document.getElementById("cusInfoForm");
-  cusInfoForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+const currentURL = window.location.href;
+const urlSearchParams = new URLSearchParams(currentURL.split('?')[1]);
+const queryParams = Array.from(urlSearchParams.entries()).reduce((params, [key, value]) => {
+  params[key] = value;
+  return params;
+}, {});
 
-    nextButton();
-  });
-});
 async function nextButton() {
-  var firstName = document.getElementById("firstName");
-  var lastName = document.getElementById("lastName");
-  var email = document.getElementById("email");
-  var phone = document.getElementById("phone");
-  // var errorFirstName = document.getElementById("errorFirstName");
-  // var errorLastName = document.getElementById("errorLastName");
-  // var errorEmail = document.getElementById("errorEmail");
-  // var errorPhone = document.getElementById("errorPhone");
-  var errorMessage = document.getElementById("errorMessage");
-  var newCustButton = document.getElementById("newCustButton");
+  const firstName = document.getElementById('firstName');
+  const lastName = document.getElementById('lastName');
+  const email = document.getElementById('email');
+  const phone = document.getElementById('phone');
+  const errorMessage = document.getElementById('errorMessage');
 
-  var isFirstNameValid = !!firstName.value.trim();
-  var isLastNameValid = !!lastName.value.trim();
-  var isEmailValid = !!email.value.trim();
-  var isPhoneValid = !!phone.value.trim();
-  // errorFirstName.style.display = isFirstNameValid ? "none" : "block";
-  // errorLastName.style.display = isLastNameValid ? "none" : "block";
-  // errorEmail.style.display = isEmailValid ? "none" : "block";
-  // errorPhone.style.display = isPhoneValid ? "none" : "block";
-  var isFormValid =
-    isFirstNameValid && isLastNameValid && isEmailValid && isPhoneValid;
+  const isFirstNameValid = !!firstName.value.trim();
+  const isLastNameValid = !!lastName.value.trim();
+  const isEmailValid = !!email.value.trim();
+  const isPhoneValid = !!phone.value.trim();
+  const isFormValid = isFirstNameValid && isLastNameValid && isEmailValid && isPhoneValid;
   if (isFormValid) {
     const postData = {
       firstName: firstName.value,
@@ -42,34 +25,42 @@ async function nextButton() {
       phoneNumber: phone.value,
     };
     const requestOptions = {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(postData),
     };
-    fetch(`${soapBoxURL}/customer`, requestOptions)
+    console.log('body:', requestOptions.body);
+    fetch(`/create-customer`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          console.log("APIrequestsuccess:", data);
-          queryParams["customerId"] = data.customerId;
-          updatedQueryString = Object.entries(queryParams)
-            .map((param) => param.join("="))
-            .join("&");
-          window.location.href = "/reason?" + updatedQueryString;
+          console.log('APIrequestsuccess:', data);
+          queryParams.customerId = data.customerId;
+          const updatedQueryString = Object.entries(queryParams)
+            .map((param) => param.join('='))
+            .join('&');
+          window.location.href = `/reason?${updatedQueryString}`;
         } else {
-          errorMessage.style.display = "block";
+          errorMessage.style.display = 'block';
           errorMessage.innerText = `${data.msg}\nCustomer ID: ${data.customerId}`;
-          console.error("APIrequestfailed");
+          console.error('APIrequestfailed');
         }
       })
       .catch((error) => {
-        console.error("Error:", error);
+        console.error('Error:', error);
       });
   }
 }
 function handlePrevious() {
-  window.location.href = "/?" + urlSearchParams;
+  window.location.href = `/?${urlSearchParams}`;
 }
+document.addEventListener('DOMContentLoaded', () => {
+  const cusInfoForm = document.getElementById('cusInfoForm');
+  cusInfoForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    nextButton();
+  });
+});

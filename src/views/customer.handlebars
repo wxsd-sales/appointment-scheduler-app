@@ -1,62 +1,45 @@
-<script src="./js/customer.js"></script>
+<script src='./js/customer.js'></script>
 
-<form class="container px-4 mb-6" onsubmit="nextButton()" id="firstForm">
-  <div class="columns is-multiline">
-    <div class="column is-full">
-      <h2 class="title is-2">Make an appointment</h2>
+<form class='container px-4 mb-6' onsubmit='nextButton()' id='firstForm'>
+  <div class='columns is-multiline'>
+    <div class='column is-full'>
+      <h2 class='title is-2'>Make an appointment</h2>
     </div>
-    <div class="column is-full">
-      <h4 class="subtitle is-4">Get started by entering your Customer ID!</h4>
+    <div class='column is-full'>
+      <h4 class='subtitle is-4'>Get started by entering your Customer ID!</h4>
     </div>
-    <div class="column is-one-third">
-      <label class="label" for="customerId">Customer ID<sup
-          class="has-text-danger"
-          title="required"
+    <div class='column is-one-third'>
+      <label class='label' for='customerId'>Customer ID<sup
+          class='has-text-danger'
+          title='required'
         >*</sup></label>
-      <div class="control has-icons-left">
-        <input
-          class="input"
-          type="tel"
-          id="customerId"
-          placeholder="e.g 1155"
-          required
-        />
-        <span class="icon is-left">
-          <i class="fa-solid fa-list-ol"></i>
+      <div class='control has-icons-left'>
+        <input class='input' type='tel' id='customerId' placeholder='e.g 1155' required />
+        <span class='icon is-left'>
+          <i class='fa-solid fa-list-ol'></i>
         </span>
-        <p class="help">This is a numeric number unique to each customer</p>
-        <p
-          class="help is-danger"
-          id="errorMessage"
-          style="display:none;"
-        >Provided customer ID doesnot exist</p>
+        <p class='help'>This is a numeric number unique to each customer</p>
+        <p class='help is-danger' id='errorMessage' style='display:none;'>Provided customer ID
+          doesnot exist</p>
       </div>
     </div>
   </div>
-  <div class="columns is-centered">
-    <div class="column is-half">
-      <div class="buttons is-centered">
-        <button
-          class="button is-rounded is-medium"
-          id="prevLink"
-          onclick="handlePrevious()"
-        >
-          <span class="icon">
-            <i class="fa-solid fa-backward"></i>
+  <div class='columns is-centered'>
+    <div class='column is-half'>
+      <div class='buttons is-centered'>
+        <button class='button is-rounded is-medium' id='prevLink' onclick='handlePrevious()'>
+          <span class='icon'>
+            <i class='fa-solid fa-backward'></i>
           </span>
           <span>Previous</span>
         </button>
-        <button class="button is-rounded custom-red is-medium" type="submit">
+        <button class='button is-rounded custom-red is-medium' type='submit'>
           <span>Next</span>
-          <span class="icon">
-            <i class="fa-solid fa-forward"></i>
+          <span class='icon'>
+            <i class='fa-solid fa-forward'></i>
           </span>
         </button>
       </div>
     </div>
   </div>
 </form>
-
-<script>
-  const accessToken="{{accessToken}}"; const soapBoxURL="{{soapBoxURL}}";
-</script>
